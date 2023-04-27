@@ -16,5 +16,9 @@
 	<delete id="deleteDao">
 		DELETE FROM myboard WHERE mid=#{param1}
 	</delete>
+	
+	<select id="totalCount" resultType="int">
+		SELECT COUNT(*) FROM myboard
+	</select>
 
 </mapper>    

@@ -57,4 +57,17 @@ public class HomeController {
 		return "redirect:list";
 	}
 	
+	@RequestMapping(value = "/delete")
+	public String delete(HttpServletRequest request) {
+		
+		String mid = request.getParameter("mid");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		dao.deleteDao(mid);
+		
+		return "redirect:list";
+		
+	}
+	
 }

@@ -15,6 +15,7 @@
 	<h2>글번호 : ${dto.mid }</h2>
 	<h2>글쓴이 : ${dto.mwriter }</h2>
 	<h2>글내용 : ${dto.mcontent }</h2>
+	<h2>글삭제 : <input type="button" value="삭제" onclick="script:window.location.href='delete?mid=${dto.mid }'"></h2>
 	<hr>
 	</c:forEach>
 	

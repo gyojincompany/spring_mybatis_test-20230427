@@ -12,5 +12,9 @@
 	<select id="listDao" resultType="com.gyojincompany.mybatis.dto.BoardDto">
 		SELECT * FROM myboard ORDER BY mid DESC
 	</select>
+	
+	<delete id="deleteDao">
+		DELETE FROM myboard WHERE mid=#{param1}
+	</delete>
 
 </mapper>    

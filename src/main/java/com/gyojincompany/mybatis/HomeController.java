@@ -1,6 +1,7 @@
 package com.gyojincompany.mybatis;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.gyojincompany.mybatis.dao.IDao;
+import com.gyojincompany.mybatis.dto.BoardDto;
 
 /**
  * Handles requests for the application home page.
@@ -27,7 +29,13 @@ public class HomeController {
 	private SqlSession sqlSession;//sqlSession 빈이 컨테이너에서 자동 주입
 	
 	@RequestMapping(value = "/list")
-	public String list() {
+	public String list(Model model) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		ArrayList<BoardDto> dtos = dao.listDao();
+		
+		model.addAttribute("list", dtos);
 		
 		return "list";
 	}
